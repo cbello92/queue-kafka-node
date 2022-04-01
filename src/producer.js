@@ -20,6 +20,9 @@ const producerKafka = async (nameTopic, bodyTopic) => {
     }
 }
 
-producerKafka('test-topic', { value: 'Hello world from NodeJS + Kafka' });
+const usersValues = [
+  {fullname: 'Camilo Bello', age: 29},
+  {fullname: 'Miguel Bello', age: 58},
+]
 
-module.exports = producerKafka;
+producerKafka('test-topic', { value: JSON.stringify(usersValues) });

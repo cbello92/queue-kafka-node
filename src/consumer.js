@@ -10,7 +10,8 @@ const consumerKafka = async () => {
         await consumer.run({
             eachMessage: async ({ topic, partition, message }) => {
                 console.log({
-                    value: message.value.toString(),
+                    topic,
+                    value: JSON.parse(message.value),
                 })
             },
         });
@@ -20,5 +21,3 @@ const consumerKafka = async () => {
 }
 
 consumerKafka();
-
-module.exports = consumerKafka;
