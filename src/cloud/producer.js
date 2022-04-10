@@ -1,4 +1,4 @@
-const kafka = require("./kafkaConnect")
+const kafka = require("./kafkaCloudConnect")
 
 const producerKafka = async (nameTopic, bodyTopic) => {
     try {
@@ -25,4 +25,4 @@ const usersValues = [
   {fullname: 'Miguel Bello', age: 58},
 ]
 
-producerKafka('test-topic', { value: JSON.stringify(usersValues) });
+producerKafka(process.env.TOPIC_NAME_CLOUD, { value: JSON.stringify(usersValues) });

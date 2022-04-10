@@ -1,11 +1,11 @@
-const kafka = require('./kafkaConnect');
+const kafka = require('./kafkaLocalConnect');
 
 const consumerKafka = async () => {
     try {
-        const consumer = kafka.consumer({ groupId: 'test-kafka-group' });
+        const consumer = kafka.consumer({ groupId: process.env.TOPIC_NAME_LOCAL });
 
         await consumer.connect()
-        await consumer.subscribe({ topic: 'test-topic', fromBeginning: true });
+        await consumer.subscribe({ topic: process.env.TOPIC_NAME_LOCAL, fromBeginning: true });
 
         await consumer.run({
             eachMessage: async ({ topic, partition, message }) => {

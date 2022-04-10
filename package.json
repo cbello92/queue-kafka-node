@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "producer-cloud": "node src/cloud/producer.js",
+    "consumer-cloud": "node src/cloud/consumer.js",
+    "producer-local": "node src/local/producer.js",
+    "consumer-local": "node src/local/consumer.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "kafkajs": "^1.16.0"
   }
 }
